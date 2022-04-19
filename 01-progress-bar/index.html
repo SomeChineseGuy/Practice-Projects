@@ -12,16 +12,19 @@
   </div>
 
   <div class="submission-container">
-    <input type="number">
-    <button>Submit</button>
+    <input type="number" value="0" placeholder="Seconds to fill" class="num-input-time">
+    <label for="Seconds to full">Time to fill</label>
+    <br>
+    
+    <input type="number" value="0" placeholder="% Fill to" class="num-input-fill">
+    <label for="Amount to be filled">Amount to be filled</label>
+    <br>
+
+    <button onclick="progressSubmission()">Submit</button>
   </div>
   
 
   <style>
-    body {
-
-      
-    }
     .bar {
       height: 30px;
       width: 300px;
@@ -40,7 +43,14 @@
   </style>
 
   <script>
-
+    
+    const progressSubmission = () => {
+      const numInputTime = document.getElementsByClassName("num-input-time")[0].valueAsNumber;
+      const numInputFill = document.getElementsByClassName("num-input-fill")[0].valueAsNumber;
+      const bar = document.querySelector(".progress-bar");
+      bar.style.transition = `all ${numInputTime}s linear`;
+      bar.style.width = `${numInputFill}%`;
+    };
 
   </script>
 </body>
