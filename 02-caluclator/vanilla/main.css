@@ -29,11 +29,11 @@ body {
   padding: 10px;
   border: 2px solid black;
   border-radius: 50%;
-  min-width: 20px;
+  width: 16%;
   text-align: center;
 }
 
 .button.double {
-  min-width: 90px;
+  width: 45%;
   border-radius: 40px;
 }
