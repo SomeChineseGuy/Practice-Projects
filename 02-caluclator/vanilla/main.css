@@ -1,6 +1,11 @@
+body {
+  font-weight: 800;
+  font-family: 'Roboto', sans-serif;
+}
+
 .calculator-body {
   max-width: 250px; 
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 8px;
   padding: 20px;
   margin: 100px;
@@ -9,7 +14,7 @@
 .calculator-screen {
   margin-bottom: 30px;
   padding: 5px 10px;
-  border: 1px solid black;
+  border: 2px solid black;
 
 }
 
@@ -22,7 +27,7 @@
 
 .button {
   padding: 10px;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 50%;
   min-width: 20px;
   text-align: center;
