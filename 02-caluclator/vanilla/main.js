@@ -13,6 +13,7 @@ let calc = {
     return num1 / num2
   },
   "*": (num1, num2) => {
+    empty(space);
     return num1 * num2
   }
 };
@@ -24,6 +25,7 @@ document.addEventListener('click', (e) => {
     let calcResults = Number(space.join(''));
     if(!isCalculateButton) {
       space.push(buttonPress);
+      console.log("fire")
       let display = space.join('');
       calucalatorResults.innerHTML = display;
     } else {
@@ -44,6 +46,7 @@ document.addEventListener('click', (e) => {
         calucalatorResults.innerHTML = calc[buttonPress](prevNum, calcResults);        
       } else if (isCalculateButton === "equal" && prevNum !== 0) {
         calucalatorResults.innerHTML = calc[calcType](prevNum, calcResults);
+        prevNum = 0;
       } else if(isCalculateButton === "reverse" && calcResults !== 0) {
         space[0] === "-" ? space.shift() : space.unshift("-");
         return calucalatorResults.innerHTML = calcResults - (calcResults * 2);
