@@ -30,9 +30,8 @@ const getListOfMatches = async (puuid) => {
 }
 
 const getSingleMatch = async (matchID, puuid) => {
-  console.log(puuid);
   let positionInArr = null;
-  let matchInfo = {};
+  let matchInfo = null;
   const match = await axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchID}?api_key=${process.env.riot_api_key}`)
   .then(data => {
     let participantsArr = data.data.metadata.participants
@@ -42,11 +41,47 @@ const getSingleMatch = async (matchID, puuid) => {
       }
     }
 
-    console.log(data)
-    matchInfo["gameCreation"] = data.data.info.gameCreation;
-    matchInfo["gameDuration"] = data.data.info.gameDuration;
+    // console.log(data.data.info.teams)
+    matchInfo = {
+      match: {
+        gameEndTimestamp: data.data.info.gameEndTimestamp,
+        gameDuration: data.data.info.gameDuration,
+        win: data.data.info.participants[positionInArr].win
+      },
+      singleChar: {
+        teamId: data.data.info.participants[positionInArr].teamId,
+        champion: data.data.info.participants[positionInArr].championName,
+        summonerSpell1: data.data.info.participants[positionInArr].summoner1Id,
+        summonerSpell2: data.data.info.participants[positionInArr].summoner2Id,
+        items: {
+          0: data.data.info.participants[positionInArr].item0,
+          1: data.data.info.participants[positionInArr].item1,
+          2: data.data.info.participants[positionInArr].item2,
+          3: data.data.info.participants[positionInArr].item3,
+          4: data.data.info.participants[positionInArr].item4,
+          5: data.data.info.participants[positionInArr].item5,
+          6: data.data.info.participants[positionInArr].item6,
+        },
+        stats: {
+          assists: data.data.info.participants[positionInArr].assists,
+          deaths: data.data.info.participants[positionInArr].deaths,
+          kills: data.data.info.participants[positionInArr].kills,
+          dk: data.data.info.participants[positionInArr].doubleKills,
+          tk: data.data.info.participants[positionInArr].tripleKills,
+          qk: data.data.info.participants[positionInArr].quadraKills,
+          pk: data.data.info.participants[positionInArr].pentaKills,
+        },
+        stats2: {
+          // killPar: Math.round((data.data.info.participants[positionInArr].assists + data.data.info.participants[positionInArr].kills) / ),
+          controlWards: data.data.info.participants[positionInArr].visionWardsBoughtInGame,
+          cs: data.data.info.participants[positionInArr].neutralMinionsKilled + data.data.info.participants[positionInArr].totalMinionsKilled
+        }
+      }
+      
+    }
 
-    // console.log(data.data.info.participants[positionInArr]);
+    console.log(data.data.info.participants[positionInArr]);
+    console.log(data.data.info.teams[1]);
     
     console.log(matchInfo)
 
