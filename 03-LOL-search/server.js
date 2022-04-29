@@ -16,15 +16,23 @@ app.get('/', (req, res) => {
 const getSummerID = async (summonerName = "ThatGuyy") => {
   const summonerPuuid = await axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${process.env.riot_api_key}`)
     .then(data => {
-      console.log(data.data.puuid)
       return data.data.puuid;
     });
     return summonerPuuid;
 }
 
+const getListOfMatches = async (puuid) => {
+  const list = await axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&api_key=${process.env.riot_api_key}`)
+  .then(data => {
+    return data.data;
+  })
+  return list;
+}
+
 const testAPI = async () => {
-  let summonerID = await getSummerID()
-  console.log(summonerID);
+  let summonerID = await getSummerID();
+  let matchList = await getListOfMatches(summonerID);
+  console.log(matchList);
 }
 
 testAPI();
