@@ -14,11 +14,12 @@ app.get('/', (req, res) => {
 })
 
 const getSummerID = async (summonerName = "ThatGuyy") => {
-  const summonerID = await axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${process.env.riot_api_key}`)
+  const summonerPuuid = await axios.get(`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${process.env.riot_api_key}`)
     .then(data => {
-      return data.data.id;
+      console.log(data.data.puuid)
+      return data.data.puuid;
     });
-    return summonerID;
+    return summonerPuuid;
 }
 
 const testAPI = async () => {
