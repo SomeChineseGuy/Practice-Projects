@@ -29,7 +29,7 @@ const getListOfMatches = async (puuid) => {
   return list;
 }
 
-const getSingleMatch = async (matchID, puuid) => {
+const getSingleMatch = async (matchID, puuid, matchNum = null) => {
   let positionInArr = null;
   let matchInfo = null;
   const match = await axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchID}?api_key=${process.env.riot_api_key}`)
@@ -43,6 +43,7 @@ const getSingleMatch = async (matchID, puuid) => {
 
     // console.log(data.data.info.teams)
     matchInfo = {
+      matchNum,
       match: {
         gameEndTimestamp: data.data.info.gameEndTimestamp,
         gameDuration: data.data.info.gameDuration,
