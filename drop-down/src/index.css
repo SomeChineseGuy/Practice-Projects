@@ -105,3 +105,6 @@ a {
 .menu-item:hover {
   background-color: #525357;
 }
+.icon-right {
+  margin-right: auto;
+}

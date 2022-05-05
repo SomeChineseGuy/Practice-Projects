@@ -10,6 +10,8 @@ import { ReactComponent as BoltIcon } from './icons/bolt.svg'
 
 import { useState } from "react";
 
+import { CSSTransition } from 'react-transition-group';
+
 function App() {
   return (
     <Navbar>
@@ -27,6 +29,8 @@ function App() {
 }
 
 function DropDownMenu() {
+  const [activeMenu, setActiveMenu] = useState('main');
+
   function DropDownItem(props) {
     return (
       <a href="#" className="menu-item">
@@ -40,11 +44,20 @@ function DropDownMenu() {
 
   return(
     <div className="dropdown">
-      <DropDownItem>My profile</DropDownItem>
-      <DropDownItem>
-        leftIcon={<CogIcon />}
-        rightIcon={<ChevronIcon />}
-      </DropDownItem>
+      <CSSTransition 
+        in={activeMenu === "main"} 
+        unmountOnExit timeout={500}  
+        classNames="menu-primary"
+      >
+        <div className="manu">
+        <DropDownItem>My profile</DropDownItem>
+        <DropDownItem
+          leftIcon={<CogIcon />}
+          rightIcon={<ChevronIcon />}
+          >
+        </DropDownItem>
+        </div>
+      </CSSTransition>
     </div>
   );
 }
