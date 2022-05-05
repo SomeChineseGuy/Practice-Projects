@@ -1,0 +1,13 @@
+:root {
+  --drop-width: 420px;
+  --drop-height: 63px;
+  --text: 14px;
+  --heading: 18px;
+  --section-title: 24px;
+  --form-title: 32px;
+  --main-form-width: 950px;
+  --main-form-radius: 14px;
+  --raduis: 12px;
+  --ship-max-width: 865px;
+  --grey: #FBFBFB;
+}

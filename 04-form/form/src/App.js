@@ -1,5 +1,7 @@
-import logo from './logo.svg';
+import './variable.css';
 import './App.css';
+
+
 import {FormContainer} from './componets/FormContainer'
 
 function App() {
