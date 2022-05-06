@@ -1,4 +1,6 @@
 import { useState } from "react";
+import '../variable.css';
+import './DropdownContainer.css'
 
 
 export const DropdownContainer = (props) => {
@@ -47,7 +49,6 @@ export const DropdownContainer = (props) => {
     })
   };
 
-  showData(props.formData)
   return (
     <ul>
       {showData(props.formData)}

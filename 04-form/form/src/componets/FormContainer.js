@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { DropdownContainer } from "./DropdownContainer";
+import '../variable.css';
+import './FormContainer.css'
 
 export const FormContainer = () => {
   const [formData, setFormData] = useState([
@@ -52,7 +54,7 @@ export const FormContainer = () => {
       <h1>Form Title</h1>
       <h2>Section Title</h2>
       <DropdownContainer formData={formData} />
-
+      <button className="submit-button">Submit</button>
     </div>
   )
 }
