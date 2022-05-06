@@ -1,3 +1,23 @@
 .App {
-  
+  max-width: var(--main-form-width);
+  border-radius: var(--main-form-radius);
+  padding: 2rem;
+  background-color: white;
+  margin: auto;
+}
+
+body {
+  background-color: aqua;
+}
+
+h5, p, li {
+  font-size: var(--text);
+}
+
+h1 {
+  font-size: var(--form-title);
+}
+
+h2 {
+  font-size: var(--section-title);
 }

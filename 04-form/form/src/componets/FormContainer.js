@@ -50,7 +50,7 @@ export const FormContainer = () => {
   return (
     <div>
       <h1>Form Title</h1>
-      <h1>Section Title</h1>
+      <h2>Section Title</h2>
       <DropdownContainer formData={formData} />
 
     </div>
