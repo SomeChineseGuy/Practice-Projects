@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { DropDownContainer } from "./DropDownContainer";
+import { DropdownContainer } from "./DropdownContainer";
 
 export const FormContainer = () => {
   const [formData, setFormData] = useState([
@@ -50,7 +50,8 @@ export const FormContainer = () => {
   return (
     <div>
       <h1>Form Title</h1>
-      <DropDownContainer />
+      <h1>Section Title</h1>
+      <DropdownContainer formData={formData} />
 
     </div>
   )
