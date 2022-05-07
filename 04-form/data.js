@@ -129,3 +129,11 @@ const data = {
     ]
   }
 }
+
+
+// Questions
+// Will there always be the amount of dropdowns? ie will there always be more than one selection? 
+// What does the values: entity_id, value and placeholder do?
+// Do you care if I uses react-bootstrap?
+// Plus and x, that's add a completely new shippment and remove one?
+// How do you want the data to be sent back to?

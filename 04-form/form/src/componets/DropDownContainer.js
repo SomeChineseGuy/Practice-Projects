@@ -4,8 +4,11 @@ import './DropdownContainer.css'
 
 
 export const DropdownContainer = (props) => {
+  const [open, setOpen] = useState(false);
+
   const DropdownItem = (props) => {
-    const [selected, setSelected] = useState(null)
+    const [selected, setSelected] = useState("selected");
+    const [open, setOpen] = useState(false);
     console.log(props);
     return(
       <li>
@@ -28,11 +31,14 @@ export const DropdownContainer = (props) => {
                  type={item.type}
                  value={item.value}
                  width={item.width}} */}
-                <li>Select</li>
-              {item.options.map((inner) => {
+                <li
+                onClick={()=> setOpen(!open)}
+                >test</li>
+              {open && item.options.map((inner) => {
                 return <DropdownItem
                   driver={inner.value}
                   key={inner.id}
+                  
                 />
               })}
              
@@ -50,8 +56,8 @@ export const DropdownContainer = (props) => {
   };
 
   return (
-    <ul>
+    <div class="dropdown-container">
       {showData(props.formData)}
-    </ul>
+    </div>
   )
 }
