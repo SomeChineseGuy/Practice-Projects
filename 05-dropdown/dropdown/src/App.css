@@ -2,3 +2,23 @@
   height: 100px;
   width: 100%;
 }
+
+ul {
+  list-style-type: none;
+  width: 300px;
+  margin-top: 30px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid black;
+  padding: 5px 5px;
+  margin: 0;
+  
+}
+
+p {
+  margin: 0;
+}

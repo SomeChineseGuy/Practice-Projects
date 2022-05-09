@@ -8,8 +8,8 @@ function App() {
 
   const DropDownItem = (props) => {
     return(
-      <li onClick={()=> setCurrentColor(props.children)}>
-        <p>{props.children}</p>
+      <li className='dropdown-item' onClick={()=> setCurrentColor(props.children)}>
+        <p>{isOpen && props.children}</p>
       </li>
     )
   }
@@ -20,10 +20,11 @@ function App() {
       <h1>Hello world</h1>
       <div className='bar' style={{backgroundColor: `${currentColor}`}}></div>
       <div className='dropdown-conatiner' onClick={() => setIsOpen(!isOpen)}>
-        <ul>
-        {colorArr.map((item) => {
-          return <DropDownItem key={item}>{item}</DropDownItem>
-        })}
+        <ul >
+          <li style={isOpen ? {fontStyle: 'italic', opacity: '0.5'} : {}}>{isOpen ? 'Select' : currentColor}</li>
+          {isOpen && colorArr.map((item, index) => {
+            return <DropDownItem key={index}>{item}</DropDownItem>
+          })}
         </ul>
       </div>
     </div>
