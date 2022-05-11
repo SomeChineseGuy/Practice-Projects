@@ -5,7 +5,7 @@ import { WeatherInfo } from './WeatherInfo';
 export const Container = () => {
   const [city, setCity] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
-  const [err, setErr] = useState(null);
+  const [message, setMessage] = useState('Find your weather!');
 
 
   useEffect(() => {
@@ -16,13 +16,13 @@ export const Container = () => {
   const fetchData = (city = "vancouver") => {
     axios.get(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city}&appid=${process.env.REACT_APP_apiKey}`)
     .then(data => {
-      setErr(null);
+      setMessage(`You Searched for: ${data.data.name}`);
       setWeatherData(data.data);
     })
     .catch(err => {
-      console.log(err);
+      console.error(err);
       setWeatherData(null);
-      setErr("City Not found, please try again.")
+      setMessage(`Unable to find ${city}, please try again.`);
     })
   }
  
@@ -41,9 +41,8 @@ export const Container = () => {
         <input type="text" name='city'/>
         <button>Search</button>
       </form>
-
-      <div>{weatherData && <WeatherInfo weather={weatherData}/>}</div>
-      <div className='err' style={err ? {display: "block"} : {display: "none"}}><h2>{err && err}</h2></div>
+      <h1>{message}</h1>
+      {weatherData && <WeatherInfo weather={weatherData}/>}
 
     </div>
   );
