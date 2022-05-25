@@ -8,11 +8,13 @@ function App() {
   {
     name: "Driver", 
     type: 'dropdown',
+    id:1,
     elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
   },
   {
     name: "Temp", 
-    type: 'number'
+    type: 'number',
+    id: 2
   },
 
   ]);
@@ -26,6 +28,7 @@ function App() {
     <div className="App">
       {items && items.map((item) => {
         return <DropDownItem 
+          key={item.id}
           elements={item.elements} 
           name={item.name} 
           type={item.type} 

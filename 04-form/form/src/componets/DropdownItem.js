@@ -1,24 +1,42 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import './DropdownItem.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export const DropDownItem = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const handleToggle = (e) => {
+    props.pickUser(e.target.innerText)
+    e.target.focus();
+    // console.log(e)
+  }
+
+  const handleBlur = (e) => {
+    console.log("Before")
+    if (e.nativeEvent.explicitOriginalTarget && e.nativeEvent.explicitOriginalTarget === e.nativeEvent.originalTarget) return;
+    console.log("After");
+    setTimeout(() => {
+      if(isOpen) setIsOpen(false);  
+    }, 100);    
+  }
 
   return(
     <div>
       <h3>{props.name}</h3>
       {props.type === "dropdown" &&
         <div className={`dropdown-container ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
-          <li className='selected' style={isOpen ? {fontStyle: 'italic', opacity: '0.5'} : {opacity: .7} }>
-            {props.selected ? props.selected : "Select"}
-          </li>
-          <ul>
-            
+          <input 
+            type="button" 
+            value={props.selected ? props.selected : "Select"}
+            onBlur={handleBlur} 
+            className='selected' 
+            style={isOpen ? {fontStyle: 'italic', opacity: '0.5'} : {opacity: .7} } 
+          />            
+          
+          <ul >            
             {isOpen && props.elements.map(item => {
               return (
-              <li key={item.id} onClick={(e) => props.pickUser(item.value)}>
+              <li key={item.id} onClick={handleToggle} >
                 {item.value}
               </li>
               )

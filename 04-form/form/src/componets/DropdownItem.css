@@ -4,9 +4,8 @@
   margin-left: 0; 
   border-radius: var(--raduis);
   position: relative;
-  transition: all 0.4s ease;
-  max-height: 38px;
-  padding: 5px 0;
+  transition: all 1s ease;
+  max-height: 47px;
   overflow: hidden;
 }
 
@@ -28,17 +27,21 @@ li {
   padding: 10px;
 }
 
-li.selected {
+input.selected {
   border: none;
-  padding: 10px;
+  padding: 15px;
+  width: 100%;
+  text-align: left;
+  box-sizing: content-box;
+  background-color: transparent;
 }
 
 .icon {
   color: rgba(0, 79, 147, 0.5);
   position: absolute;
   top: 15px;
-  right: 24px;
-  transition: all 0.4s ease;
+  right: 15px;
+  transition: all 0.3s ease;
 }
 
 .icon.up {
