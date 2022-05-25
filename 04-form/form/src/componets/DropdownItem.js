@@ -12,16 +12,15 @@ export const DropDownItem = (props) => {
   }
 
   const handleBlur = (e) => {
-    console.log("Before")
     if (e.nativeEvent.explicitOriginalTarget && e.nativeEvent.explicitOriginalTarget === e.nativeEvent.originalTarget) return;
-    console.log("After");
+    
     setTimeout(() => {
       if(isOpen) setIsOpen(false);  
     }, 100);    
   }
 
   return(
-    <div>
+    <div className="item-container">
       <h3>{props.name}</h3>
       {props.type === "dropdown" &&
         <div className={`dropdown-container ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>

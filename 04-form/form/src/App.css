@@ -4,6 +4,7 @@
   padding: 2rem;
   background-color: white;
   margin: auto;
+  display: grid;
 }
 
 body {

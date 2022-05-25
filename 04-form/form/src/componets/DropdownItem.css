@@ -1,3 +1,8 @@
+.item-container {
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
 .dropdown-container, .number {
   list-style-type: none;  
   border: 1px solid var(--border-color);
@@ -24,7 +29,7 @@ li {
   border-top: 1px solid var(--border-color);
   margin: 0;
   font-size: var(--text);
-  padding: 10px;
+  padding: 15px;
 }
 
 input.selected {
@@ -42,6 +47,7 @@ input.selected {
   top: 15px;
   right: 15px;
   transition: all 0.3s ease;
+  pointer-events: none;
 }
 
 .icon.up {
