@@ -58,11 +58,9 @@ input.selected {
 }
 
 
-
-
-.section-container {
+.form-container {
   margin: auto;
   display: grid;
   grid-gap: var(--grid-gap);
-  padding: 2rem;
+
 }

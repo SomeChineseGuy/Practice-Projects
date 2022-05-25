@@ -3,6 +3,7 @@
   border-radius: var(--main-form-radius);
   background-color: white;
   margin: auto;
+  padding: 2rem;
 }
 
 body {

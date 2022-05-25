@@ -52,18 +52,23 @@ function App() {
 
   return (
     <div className="App" >
-      <div className='section-container' style={{gridTemplateColumns: `repeat(${items.column}, 1fr)`, gridTemplateRows: `repeat(${items.row}, 1fr)`}} >
-        {items && items.list.map((item) => {
-          return <DropDownItem 
-            key={item.id}
-            elements={item.elements} 
-            name={item.name} 
-            type={item.type} 
-            selected={selected} 
-            pickUser={pickUser}
-          />
-        })}
-      </div>
+      <h1>Form Title</h1>
+      <section class="section-container">
+        <h2>{items.sectionTitle}</h2>
+        <div className='form-container' style={{gridTemplateColumns: `repeat(${items.column}, 1fr)`}} >
+          
+          {items && items.list.map((item) => {
+            return <DropDownItem 
+              key={item.id}
+              elements={item.elements} 
+              name={item.name} 
+              type={item.type} 
+              selected={selected} 
+              pickUser={pickUser}
+            />
+          })}
+        </div>
+      </section>
     </div>
   );
 }
