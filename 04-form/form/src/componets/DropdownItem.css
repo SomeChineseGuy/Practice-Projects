@@ -1,6 +1,5 @@
-.dropdown-container {
+.dropdown-container, .number {
   list-style-type: none;  
-  margin-top: 30px;
   border: 1px solid var(--border-color);
   margin-left: 0; 
   border-radius: var(--raduis);
@@ -44,4 +43,12 @@ li.selected {
 
 .icon.up {
   transform: rotateZ(180deg);
+}
+
+
+.number {
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  max-height: 48px;
 }
