@@ -1,7 +1,6 @@
 import './variable.css';
 import './App.css';
 
-
 import {FormContainer} from './componets/FormContainer';
 import {DropDownItem} from './componets/DropdownItem';
 import {useState} from 'react';
