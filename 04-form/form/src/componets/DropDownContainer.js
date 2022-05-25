@@ -56,7 +56,7 @@ export const DropdownContainer = (props) => {
   };
 
   return (
-    <div class="dropdown-container">
+    <div clasNames="dropdown-container">
       {showData(props.formData)}
     </div>
   )
