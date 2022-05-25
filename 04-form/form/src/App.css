@@ -1,10 +1,8 @@
 .App {
   max-width: var(--main-form-width);
   border-radius: var(--main-form-radius);
-  padding: 2rem;
   background-color: white;
   margin: auto;
-  display: grid;
 }
 
 body {

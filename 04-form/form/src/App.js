@@ -8,13 +8,12 @@ function App() {
     sectionTitle: "Section Title",
     row: 2,
     column: 2,
+    formType: 'normal',
     list: [
       {
         name: "Driver", 
         type: 'dropdown',
         id:1,
-        row: 2,
-        column: 2,
         required: true,
         elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
       },
@@ -22,8 +21,6 @@ function App() {
         name: "Temp", 
         type: 'number',
         id: 2,
-        row: 2,
-        column: 2,
         required: true,
       },
 
@@ -34,8 +31,6 @@ function App() {
         width: '6',
         prop: 'driver',
         required: true,
-        row: 2,
-        column: 2,
         elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
       },
       {
@@ -45,8 +40,6 @@ function App() {
         width: '6',
         prop: 'trailer',
         required: true,
-        row: 2,
-        column: 2,
         elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
       },
     ]
@@ -58,18 +51,19 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {items && items.list.map((item) => {
-        return <DropDownItem 
-          key={item.id}
-          elements={item.elements} 
-          name={item.name} 
-          type={item.type} 
-          selected={selected} 
-          pickUser={pickUser}
-        />
-      })}
-      
+    <div className="App" >
+      <div className='section-container' style={{gridTemplateColumns: `repeat(${items.column}, 1fr)`, gridTemplateRows: `repeat(${items.row}, 1fr)`}} >
+        {items && items.list.map((item) => {
+          return <DropDownItem 
+            key={item.id}
+            elements={item.elements} 
+            name={item.name} 
+            type={item.type} 
+            selected={selected} 
+            pickUser={pickUser}
+          />
+        })}
+      </div>
     </div>
   );
 }
