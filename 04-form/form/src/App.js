@@ -1,6 +1,7 @@
 import './variable.css';
 import './App.css';
-import {DropDownItem} from './componets/DropdownItem';
+import {FormItem} from './componets/FormItem';
+import {FormContainer} from './componets/FormContainer';
 import {useState} from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -121,7 +122,7 @@ function App() {
         <div className={`form-container ${items.draggable ? "draggable" : ""}` } style={{gridTemplateColumns: `repeat(${items.column}, 1fr)`}} >
           {items.draggable && <FontAwesomeIcon icon={faGripVertical} className="drag-dots" />}
           {items && items.elements[0].list.map((item) => {
-            return <DropDownItem
+            return <FormItem
               key={item.id}
               elements={item.elements} 
               name={item.name} 

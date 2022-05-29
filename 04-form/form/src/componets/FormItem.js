@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
-import './DropdownItem.css';
+import './FormItem.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
-export const DropDownItem = (props) => {
+export const FormItem = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const {pickUser, name, type, selected, elements, placeholder} = props;
 
