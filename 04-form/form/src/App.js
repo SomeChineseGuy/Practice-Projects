@@ -22,6 +22,7 @@ function App() {
           id: 6,
           type: 'element-group',
           width: '12',
+          name: "driver-picker",
           list: [
             {
               id: 7,
@@ -69,6 +70,7 @@ function App() {
           id: 26,
           type: 'element-group',
           width: '12',
+          name: "driver-picker",
           list: [
             {
               id: 27,
@@ -116,6 +118,7 @@ function App() {
           id: 36,
           type: 'element-group',
           width: '12',
+          name: "driver-picker",
           list: [
             {
               id: 37,
