@@ -1,4 +1,14 @@
-.dropdown-container, .number {
+/* Form container */
+.form-container {
+  margin: auto;
+  display: grid;
+  grid-gap: var(--grid-gap);
+  position: relative;
+}
+
+
+/* Input and Dropdown */
+.dropdown-container, .normal-input {
   list-style-type: none;  
   border: 1px solid var(--border-color);
   margin-left: 0; 
@@ -7,6 +17,13 @@
   transition: all 1s ease;
   max-height: 47px;
   overflow: hidden;
+}
+
+.normal-input {
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  max-height: 48px;
 }
 
 .dropdown-container.open {
@@ -49,18 +66,16 @@ input.selected {
   transform: rotateZ(180deg);
 }
 
-
-.number {
-  padding: 15px;
-  width: 100%;
-  box-sizing: border-box;
-  max-height: 48px;
+/* Drag and Drop */
+.draggable {
+  background-color: var(--grey);
+  padding: 24px;
+  padding-left: 50px;
+  border-radius: var(--raduis);
 }
 
-
-.form-container {
-  margin: auto;
-  display: grid;
-  grid-gap: var(--grid-gap);
-
+.drag-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

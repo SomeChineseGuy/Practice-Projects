@@ -5,8 +5,10 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export const DropDownItem = (props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const {pickUser, name, type, selected, elements, placeholder} = props;
+
   const handleToggle = (e) => {
-    props.pickUser(e.target.innerText)
+    pickUser(e.target.innerText)
     e.target.focus();
     // console.log(e)
   }
@@ -21,36 +23,37 @@ export const DropDownItem = (props) => {
 
   return(
     <div className="item-container">
-      <h3>{props.name}</h3>
-      {props.type === "dropdown" &&
-        <div className={`dropdown-container ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
-          <input 
-            type="button" 
-            value={props.selected ? props.selected : "Select"}
-            onBlur={handleBlur} 
-            className='selected' 
-            style={isOpen ? {fontStyle: 'italic', opacity: '0.5'} : {opacity: .7} } 
-          />            
-          
-          <ul >            
-            {isOpen && props.elements.map(item => {
-              return (
-              <li key={item.id} onClick={handleToggle} >
-                {item.value}
-              </li>
-              )
-            })}
-            <FontAwesomeIcon icon={faChevronDown}  className={`icon ${isOpen ? 'up' : ''}`} />
-          </ul>
-        </div>
-      }
+      <h3>{name}</h3>
+      
+    {type === "dropdown" &&
+      <div className={`dropdown-container ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
+        <input 
+          type="button" 
+          value={selected ? selected : "Select"}
+          onBlur={handleBlur} 
+          className='selected' 
+          style={isOpen ? {fontStyle: 'italic', opacity: '0.5'} : {opacity: .7} } 
+        />            
+        
+        <ul >            
+          {isOpen && elements.map(item => {
+            return (
+            <li key={item.id} onClick={handleToggle} >
+              {item.value}
+            </li>
+            )
+          })}
+          <FontAwesomeIcon icon={faChevronDown}  className={`icon ${isOpen ? 'up' : ''}`} />
+        </ul>
+      </div>
+    }
 
-      {props.type === "number" &&
-        <div> 
-          <input type="number" placeholder="Number" className="number"/>
-        </div>
-      }
-
+    {type !== "dropdown" &&
+      <div> 
+        <input type={type} placeholder={placeholder} className="normal-input"/>
+      </div>
+    }
+    
     </div>
   )
 }

@@ -21,3 +21,7 @@ h1 {
 h2 {
   font-size: var(--section-title);
 }
+
+h3 {
+  margin: 0 0 10px 0;
+}

@@ -3,6 +3,9 @@ import './App.css';
 import {DropDownItem} from './componets/DropdownItem';
 import {useState} from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
+
 function App() {
   const [items, setItems] = useState(
     {
@@ -24,7 +27,7 @@ function App() {
               id: 7,
               entity_id: '',
               name: 'Customer',
-              placeholder: '',
+              placeholder: 'String',
               value: '',
               type: 'string',
               width: '3',
@@ -34,7 +37,7 @@ function App() {
               id: 8,
               entity_id: '',
               name: 'Purchase Order No.',
-              placeholder: '',
+              placeholder: 'String',
               value: '',
               type: 'string',
               width: '3',
@@ -44,7 +47,7 @@ function App() {
               id: 9,
               entity_id: '',
               name: 'Shipper',
-              placeholder: '',
+              placeholder: 'String',
               value: '',
               type: 'string',
               width: '3',
@@ -54,7 +57,7 @@ function App() {
               id: 10,
               entity_id: '',
               name: 'Cases',
-              placeholder: '',
+              placeholder: 'Number',
               value: '',
               type: 'number',
               width: '3',
@@ -115,14 +118,15 @@ function App() {
       <h1>Form Title</h1>
       <section className="section-container">
         <h2>{items.sectionTitle}</h2>
-        <div className='form-container' style={{gridTemplateColumns: `repeat(${items.column}, 1fr)`}} >
-          
+        <div className={`form-container ${items.draggable ? "draggable" : ""}` } style={{gridTemplateColumns: `repeat(${items.column}, 1fr)`}} >
+          {items.draggable && <FontAwesomeIcon icon={faGripVertical} className="drag-dots fa-2x" />}
           {items && items.elements[0].list.map((item) => {
-            return <DropDownItem 
+            return <DropDownItem
               key={item.id}
               elements={item.elements} 
               name={item.name} 
               type={item.type} 
+              placeholder={item.placeholder} 
               selected={selected} 
               pickUser={pickUser}
             />
