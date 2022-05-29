@@ -13,9 +13,29 @@ export const FormContainer = (props) => {
   return (
     <section className="section-container">
     <h2>{sectionTitle}</h2>
-    <div className={`form-container ${draggable ? "draggable" : ""}` } style={{gridTemplateColumns: `repeat(${column}, 1fr)`}} >
-      {draggable && <FontAwesomeIcon icon={faGripVertical} className="drag-dots" />}
-      {elements && elements[0].list.map((item) => {
+    {draggable && elements.map(inner => {
+      return (
+        <div key={inner.id} className="form-container draggable" style={{gridTemplateColumns: `repeat(${column}, 1fr)`}}>
+          <FontAwesomeIcon icon={faGripVertical} className="drag-dots" />
+          {inner.list.map((item) => {
+            return <FormItem
+              key={item.id}
+              elements={item.elements} 
+              name={item.name} 
+              type={item.type} 
+              placeholder={item.placeholder} 
+            />
+          })}
+        </div>
+      )
+    })
+      
+    }
+  
+    {!draggable && 
+      <div className="form-container"  style={{gridTemplateColumns: `repeat(${column}, 1fr)`}} >
+     
+      {!draggable && elements[0].list.map((item) => {
         return <FormItem
           key={item.id}
           elements={item.elements} 
@@ -25,6 +45,8 @@ export const FormContainer = (props) => {
         />
       })}
     </div>
+    }
+    
   </section>
   )
 }

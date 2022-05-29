@@ -26,7 +26,7 @@ function App() {
             {
               id: 7,
               entity_id: '',
-              name: 'Customer',
+              name: 'Customer1',
               placeholder: 'String',
               value: '',
               type: 'string',
@@ -73,7 +73,7 @@ function App() {
             {
               id: 27,
               entity_id: '',
-              name: 'Customer',
+              name: 'Customer2',
               placeholder: 'String',
               value: '',
               type: 'string',
@@ -120,7 +120,7 @@ function App() {
             {
               id: 37,
               entity_id: '',
-              name: 'Customer',
+              name: 'Customer3',
               placeholder: 'String',
               value: '',
               type: 'string',
