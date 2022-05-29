@@ -119,7 +119,7 @@ function App() {
       <section className="section-container">
         <h2>{items.sectionTitle}</h2>
         <div className={`form-container ${items.draggable ? "draggable" : ""}` } style={{gridTemplateColumns: `repeat(${items.column}, 1fr)`}} >
-          {items.draggable && <FontAwesomeIcon icon={faGripVertical} className="drag-dots fa-2x" />}
+          {items.draggable && <FontAwesomeIcon icon={faGripVertical} className="drag-dots" />}
           {items && items.elements[0].list.map((item) => {
             return <DropDownItem
               key={item.id}

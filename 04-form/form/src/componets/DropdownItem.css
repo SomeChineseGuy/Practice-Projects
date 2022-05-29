@@ -76,6 +76,7 @@ input.selected {
 
 .drag-dots {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 45px;
+  left: 15px;
+  font-size: 30px;
 }

@@ -10,7 +10,6 @@ export const DropDownItem = (props) => {
   const handleToggle = (e) => {
     pickUser(e.target.innerText)
     e.target.focus();
-    // console.log(e)
   }
 
   const handleBlur = (e) => {
