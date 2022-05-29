@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import {FormItem} from './FormItem';
 import '../variable.css';
-import './FormContainer.css'
+import './FormContainer.css';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
