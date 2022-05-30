@@ -74,13 +74,16 @@ input.selected {
   border-radius: var(--raduis);
 }
 
-.section-container .draggable:not(:first-child) {
-  margin-top: 30px;
-}
-
 .drag-dots {
   position: absolute;
   top: 45px;
   left: 15px;
   font-size: 30px;
+}
+
+.tests {
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }

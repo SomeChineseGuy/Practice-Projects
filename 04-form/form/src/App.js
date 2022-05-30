@@ -1,7 +1,6 @@
 import './variable.css';
 import './App.css';
 import {FormContainer} from './componets/FormContainer';
-import { StrictMode } from 'react';
 import {useState} from 'react';
 
 
@@ -218,18 +217,16 @@ function App() {
 
   return (
     <div className="App" >
-      <h1>Form Title</h1>
-      
+      <h1>Form Title</h1>      
         {items && items.map(form => {
-          return <FormContainer
+          return <FormContainer            
             key={form.id}
             sectionTitle={form.sectionTitle}
             draggable={form.draggable}
             column={form.column}
             elements={form.elements}
           />
-        })}
-      
+        })}      
     </div>
   );
 }
