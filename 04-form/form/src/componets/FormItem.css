@@ -81,9 +81,9 @@ input.selected {
   font-size: 30px;
 }
 
-.tests {
-  height: 480px;
+.single-draggable {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  height: 100%;
 }
