@@ -1,6 +1,7 @@
 import './variable.css';
 import './App.css';
 import {FormContainer} from './componets/FormContainer';
+import { StrictMode } from 'react';
 import {useState} from 'react';
 
 
@@ -19,7 +20,7 @@ function App() {
       draggable: true,
       elements: [
         {
-          id: 6,
+          id: "20",
           type: 'element-group',
           width: '12',
           name: "driver-picker",
@@ -67,7 +68,7 @@ function App() {
           ]
         },
         {
-          id: 26,
+          id: "21",
           type: 'element-group',
           width: '12',
           name: "driver-picker",
@@ -115,7 +116,7 @@ function App() {
           ]
         },
         {
-          id: 36,
+          id: "22",
           type: 'element-group',
           width: '12',
           name: "driver-picker",
@@ -213,24 +214,22 @@ function App() {
       }
     ]}
   ]);
-  const [selected, setSelected] = useState(null);
 
-  const pickUser = (selection) => {
-    setSelected(selection)
-  }
 
   return (
     <div className="App" >
       <h1>Form Title</h1>
-      {items && items.map(form => {
-        return <FormContainer
-          key={form.id}
-          sectionTitle={form.sectionTitle}
-          draggable={form.draggable}
-          column={form.column}
-          elements={form.elements}
-        />
-      })}
+      
+        {items && items.map(form => {
+          return <FormContainer
+            key={form.id}
+            sectionTitle={form.sectionTitle}
+            draggable={form.draggable}
+            column={form.column}
+            elements={form.elements}
+          />
+        })}
+      
     </div>
   );
 }

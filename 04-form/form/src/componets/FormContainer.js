@@ -1,5 +1,4 @@
 
-import { useEffect, useState, useRef } from "react";
 import {FormItem} from './FormItem';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import '../variable.css';
@@ -17,18 +16,22 @@ export const FormContainer = (props) => {
     <section className="section-container">
     <h2>{sectionTitle}</h2>
     {draggable && 
-      <DragDropContext>
-        <Droppable droppableId="driver">
+      <DragDropContext onDragEnd={results => console.log(results)}>
+        <Droppable droppableId={sectionTitle} key={sectionTitle}>
           {(provided)=> (  
-            <div ref={provided.innerRef} {...provided.droppableProps}  > 
+            <div {...provided.droppableProps} ref={provided.innerRef}  > 
               {elements.map((inner, index) => {
+                console.log(inner)
                 return (
-                  <Draggable key={inner.id} draggableId={inner.name} index={index} >
+                  <Draggable key={inner.id} draggableId={inner.id} index={index} type="TASK" c>
                     {provided =>(
                       <div                       
-                        ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                          
                         style={{gridTemplateColumns: `repeat(${column}, 1fr)`}}
-                        className="form-container draggable" 
+                        className={`form-container draggable ${inner["id"].toString()}`} 
                       >
                         <FontAwesomeIcon icon={faGripVertical} className="drag-dots" />
                         {inner.list.map((item) => {
@@ -41,8 +44,7 @@ export const FormContainer = (props) => {
                           />
                         })}
                       </div>
-                    )}
-                
+                    )}                
                   </Draggable>
                 )
               })}
