@@ -1,12 +1,27 @@
 import './variable.css';
 import './App.css';
 import {FormContainer} from './componets/FormContainer';
-import {useState} from 'react';
+import {useState, useReducer} from 'react';
 
-
+const reducer = (state, action) => {
+  switch(action.type) {
+    case "submitForm": {
+      state.forEach(item => {
+        item["elements"].forEach(ele => {
+          ele["list"].forEach(listItem => {
+            if(listItem.value === '') {
+              listItem.passedCheck = false
+            }            
+          })
+        })
+      })
+    }
+    default: return state;
+  }
+}
 
 function App() {
-  const [items, setItems] = useState(
+  const [items, dispatch] = useReducer(reducer,
     [
     {
       id: 5,
@@ -244,17 +259,9 @@ function App() {
     ]}
   ]);
 
-  const checkRequired = () => {
-    items.forEach(obj => {
-      Object.keys(obj).forEach(key => {
-        console.log(`key ${key} value ${obj[key]}`)
-      })
-    }) 
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    checkRequired();
+    dispatch({type: 'submitForm'})
   }
 
   return (
