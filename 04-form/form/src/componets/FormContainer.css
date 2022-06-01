@@ -1,1 +1,30 @@
+/* Form container */
+.form-container {
+  margin: auto;
+  display: grid;
+  grid-gap: var(--grid-gap);
+  position: relative;
+}
 
+/* Submit */
+.submit-container {
+  margin-top: 30px;
+}
+
+.submit-container button {
+  background-color: var(--button);
+  color: white;
+  font-weight: 800;
+  border: none;
+  padding: 15px 70px;
+  border-radius: var(--raduis);
+  font-size: 15px;
+  pointer-events: auto;
+}
+
+.submit-container button:hover {
+  color: var(--button);
+  background-color: white;
+  border: 1px solid var(--button);
+  pointer-events: auto;
+}

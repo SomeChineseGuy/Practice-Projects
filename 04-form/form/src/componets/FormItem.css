@@ -1,12 +1,3 @@
-/* Form container */
-.form-container {
-  margin: auto;
-  display: grid;
-  grid-gap: var(--grid-gap);
-  position: relative;
-}
-
-
 /* Input and Dropdown */
 .dropdown-container, .normal-input {
   list-style-type: none;  

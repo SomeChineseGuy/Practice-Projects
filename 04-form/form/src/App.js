@@ -11,8 +11,6 @@ function App() {
     {
       id: 5,
       sectionTitle: 'Shipment 1',
-      placeholder: '',
-      value: '',
       type: 'list',
       column: 4,
       prop: 'shipments',
@@ -30,6 +28,8 @@ function App() {
               name: 'Customer1',
               placeholder: 'String',
               value: '',
+              require: true,
+              passedCheck: true,
               type: 'string',
               width: '3',
               prop: 'customer',
@@ -40,6 +40,8 @@ function App() {
               name: 'Purchase Order No.',
               placeholder: 'String',
               value: '',
+              require: true,
+              passedCheck: true,
               type: 'string',
               width: '3',
               prop: 'purchase_order_no',
@@ -50,6 +52,8 @@ function App() {
               name: 'Shipper',
               placeholder: 'String',
               value: '',
+              require: true,
+              passedCheck: true,
               type: 'string',
               width: '3',
               prop: 'shipper',
@@ -60,6 +64,8 @@ function App() {
               name: 'Cases',
               placeholder: 'Number',
               value: '',
+              require: true,
+              passedCheck: true,
               type: 'number',
               width: '3',
               prop: 'cases',
@@ -78,6 +84,8 @@ function App() {
               name: 'Customer2',
               placeholder: 'String',
               value: '',
+              require: true,
+              passedCheck: true,
               type: 'string',
               width: '3',
               prop: 'customer',
@@ -88,6 +96,8 @@ function App() {
               name: 'Purchase Order No.',
               placeholder: 'String',
               value: '',
+              require: true,
+              passedCheck: true,
               type: 'string',
               width: '3',
               prop: 'purchase_order_no',
@@ -98,6 +108,8 @@ function App() {
               name: 'Shipper',
               placeholder: 'String',
               value: '',
+              require: true,
+              passedCheck: true,
               type: 'string',
               width: '3',
               prop: 'shipper',
@@ -108,6 +120,8 @@ function App() {
               name: 'Cases',
               placeholder: 'Number',
               value: '',
+              require: true,
+              passedCheck: true,
               type: 'number',
               width: '3',
               prop: 'cases',
@@ -126,6 +140,8 @@ function App() {
               name: 'Customer3',
               placeholder: 'String',
               value: '',
+              require: true,
+              passedCheck: true,
               type: 'string',
               width: '3',
               prop: 'customer',
@@ -136,6 +152,8 @@ function App() {
               name: 'Purchase Order No.',
               placeholder: 'String',
               value: '',
+              require: true,
+              passedCheck: true,
               type: 'string',
               width: '3',
               prop: 'purchase_order_no',
@@ -146,6 +164,8 @@ function App() {
               name: 'Shipper',
               placeholder: 'String',
               value: '',
+              require: true,
+              passedCheck: true,
               type: 'string',
               width: '3',
               prop: 'shipper',
@@ -156,6 +176,8 @@ function App() {
               name: 'Cases',
               placeholder: 'Number',
               value: '',
+              require: true,
+              passedCheck: true,
               type: 'number',
               width: '3',
               prop: 'cases',
@@ -181,6 +203,8 @@ function App() {
             type: 'dropdown',
             id: 11,
             required: true,
+            passedCheck: true,
+            value:'',
             elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
           },
           {
@@ -189,6 +213,8 @@ function App() {
             placeholder: "Number",
             id: 12,
             required: true,
+            passedCheck: true,
+            value:'',
           },
 
           {
@@ -198,6 +224,8 @@ function App() {
             width: '6',
             prop: 'driver',
             required: true,
+            passedCheck: true,
+            value:'',
             elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
           },
           {
@@ -207,6 +235,8 @@ function App() {
             width: '6',
             prop: 'trailer',
             required: true,
+            passedCheck: true,
+            value:'',
             elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
           },
         ]
@@ -214,6 +244,18 @@ function App() {
     ]}
   ]);
 
+  const checkRequired = () => {
+    items.forEach(obj => {
+      Object.keys(obj).forEach(key => {
+        console.log(`key ${key} value ${obj[key]}`)
+      })
+    }) 
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    checkRequired();
+  }
 
   return (
     <div className="App" >
@@ -226,7 +268,11 @@ function App() {
             column={form.column}
             elements={form.elements}
           />
-        })}      
+        })}
+        <section className='submit-container'>
+          <button onClick={(e) => handleSubmit(e)}>Submit</button>
+        </section>
+
     </div>
   );
 }

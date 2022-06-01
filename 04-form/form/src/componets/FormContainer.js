@@ -16,25 +16,18 @@ export const FormContainer = (props) => {
 
   const handleOnDragEnd = (results) => {
     if(!results.destination) return;
-    console.log("before", formElements)
-    console.log("Destinatino",results)
     const list = Array.from(elements);
     const [reorderedItem] = list.splice(results.source.index, 1);
-    list.splice(results.destination.index, 0, reorderedItem)
-    console.log("After:", list)
+    list.splice(results.destination.index, 0, reorderedItem);
     setFormElements(list);
   }
-
-  useEffect(() => {
-
-  },[formElements])
 
   
   return (
     <section className="section-container">
     <h2>{sectionTitle}</h2>
     {draggable && 
-      <div style={{height: `${formElements.length * 150}px`}} >
+      <div style={{minHeight: `${formElements.length * 150}px`, height: `${formElements.length * 150}px`}} >
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId={sectionTitle} key={sectionTitle}>
           {(provided, snapshot)=> (  
