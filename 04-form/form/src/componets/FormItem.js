@@ -7,7 +7,6 @@ export const FormItem = (props) => {
   const {name, type, elements, placeholder, require, passedCheck} = props;
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(null);
-  console.log(selected)
 
   const handleToggle = (e) => {
     pickUser(e.target.innerText)
@@ -54,7 +53,7 @@ export const FormItem = (props) => {
 
     {type !== "dropdown" &&
       <div> 
-        <input type={type} placeholder={placeholder} className={`normal-input ${require && !passedCheck ? 'red' : ''}`}/>
+        <input type={type} placeholder={placeholder} onChange={(e) => setSelected(e.target.value)} className={`normal-input ${require && !passedCheck ? 'red' : ''}`}/>
       </div>
     }
     

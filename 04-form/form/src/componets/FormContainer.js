@@ -1,6 +1,6 @@
 
 import {FormItem} from './FormItem';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, forwardRef } from 'react';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import '../variable.css';
 import './FormContainer.css';
@@ -11,12 +11,11 @@ import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
 
 export const FormContainer = (props) => {
   const {sectionTitle, draggable, column, elements} = props;
-
-  const [formElements, setFormElements] = useState(elements)
+  const [formElements, setFormElements] = useState(elements);
 
   const handleOnDragEnd = (results) => {
     if(!results.destination) return;
-    const list = Array.from(elements);
+    const list = Array.from(formElements);
     const [reorderedItem] = list.splice(results.source.index, 1);
     list.splice(results.destination.index, 0, reorderedItem);
     setFormElements(list);
@@ -60,7 +59,7 @@ export const FormContainer = (props) => {
                               placeholder={item.placeholder}
                               value={item.value}
                               require={item.require}
-                              passedCheck={item.passedCheck}
+                              passedCheck={item.passedCheck}                              
                             />
                           })}
                         </div>

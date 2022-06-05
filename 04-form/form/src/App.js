@@ -1,7 +1,7 @@
 import './variable.css';
 import './App.css';
 import {FormContainer} from './componets/FormContainer';
-import {useState, useReducer, useEffect} from 'react';
+import {useReducer} from 'react';
 
 const reducer = (state, action) => {
   switch(action.type) {
@@ -74,6 +74,64 @@ function App() {
               width: '3',
               prop: 'shipper',
             },
+            
+            {
+              id: 16,
+              entity_id: '',
+              name: 'Cases',
+              placeholder: 'Number',
+              value: '',
+              require: true,
+              passedCheck: true,
+              type: 'number',
+              width: '3',
+              prop: 'cases',
+            }
+          ]
+        },
+        {
+          id: "99",
+          type: 'element-group',
+          width: '12',
+          name: "driver-picker",
+          list: [
+            {
+              id: 7,
+              entity_id: '',
+              name: 'Customer0',
+              placeholder: 'String',
+              value: '',
+              require: true,
+              passedCheck: true,
+              type: 'string',
+              width: '3',
+              prop: 'customer',
+            },
+            {
+              id: 8,
+              entity_id: '',
+              name: 'Purchase Order No.',
+              placeholder: 'String',
+              value: '',
+              require: true,
+              passedCheck: true,
+              type: 'string',
+              width: '3',
+              prop: 'purchase_order_no',
+            },
+            {
+              id: 9,
+              entity_id: '',
+              name: 'Shipper',
+              placeholder: 'String',
+              value: '',
+              require: true,
+              passedCheck: true,
+              type: 'string',
+              width: '3',
+              prop: 'shipper',
+            },
+            
             {
               id: 10,
               entity_id: '',
@@ -260,7 +318,6 @@ function App() {
     ]}
   ]);
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({type: 'submitForm'})
@@ -270,7 +327,7 @@ function App() {
     <div className="App" >
       <h1>Form Title</h1>      
         {items && items.map((form, idx) => {
-          return <FormContainer            
+          return <FormContainer                        
             key={form.id}
             sectionTitle={form.sectionTitle}
             draggable={form.draggable}
