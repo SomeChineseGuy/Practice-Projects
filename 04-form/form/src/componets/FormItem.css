@@ -78,3 +78,7 @@ input.selected {
   justify-content: space-around;
   height: 100%;
 }
+
+input.selected.red {
+  border: 1px solid red;
+}

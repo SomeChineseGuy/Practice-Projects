@@ -27,7 +27,7 @@ export const FormContainer = (props) => {
     <section className="section-container">
     <h2>{sectionTitle}</h2>
     {draggable && 
-      <div style={{minHeight: `${formElements.length * 150}px`, height: `${formElements.length * 150}px`}} >
+      <div style={{minHeight: `${elements.length * 150}px`, height: `${elements.length * 150}px`}} >
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId={sectionTitle} key={sectionTitle}>
           {(provided, snapshot)=> (  
@@ -46,21 +46,21 @@ export const FormContainer = (props) => {
                       <div                                               
                         {...provided.draggableProps}
                         ref={provided.innerRef}
-                        {...provided.dragHandleProps}
-                        
-
+                        {...provided.dragHandleProps}                        
                       >
                         <div style={{gridTemplateColumns: `repeat(${column}, 1fr)`,   backgroundColor: snapshot.isDragging
                           ? "#e2e2e2"
                           : "#FBFBFB",}} className={`form-container draggable`} >
                           <FontAwesomeIcon icon={faGripVertical} className="drag-dots" />
-                          {inner.list.map((item) => {
+                          {inner.list.map((item) => {                                                  
                             return <FormItem
-                              key={item.id}
-                              elements={item.formElements} 
+                              key={item.id}                               
                               name={item.name} 
                               type={item.type} 
-                              placeholder={item.placeholder} 
+                              placeholder={item.placeholder}
+                              value={item.value}
+                              require={item.require}
+                              passedCheck={item.passedCheck}
                             />
                           })}
                         </div>
@@ -82,6 +82,9 @@ export const FormContainer = (props) => {
      
       {!draggable && formElements[0].list.map((item) => {
         return <FormItem
+          value={item.value}
+          require={item.require}
+          passedCheck={item.passedCheck}
           key={item.id}
           elements={item.elements} 
           name={item.name} 
@@ -89,6 +92,7 @@ export const FormContainer = (props) => {
           placeholder={item.placeholder} 
         />
       })}
+
     </div>
     }
     

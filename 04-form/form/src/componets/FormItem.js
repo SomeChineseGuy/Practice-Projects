@@ -4,9 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export const FormItem = (props) => {
-  const {name, type, elements, placeholder} = props;
+  const {name, type, elements, placeholder, require, passedCheck} = props;
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(null);
+  console.log(selected)
 
   const handleToggle = (e) => {
     pickUser(e.target.innerText)
@@ -34,8 +35,8 @@ export const FormItem = (props) => {
             type="button" 
             value={selected ? selected : "Select"}
             onBlur={handleBlur} 
-            className='selected' 
-            style={isOpen ? {fontStyle: 'italic', opacity: '0.5'} : {opacity: .7} } 
+            className={`selected ${require && !passedCheck ? 'red' : ''}`}
+            style={isOpen ? {fontStyle: 'italic', opacity: '0.5'} : {opacity: .7}} 
           />            
           
           <ul >            
@@ -53,7 +54,7 @@ export const FormItem = (props) => {
 
     {type !== "dropdown" &&
       <div> 
-        <input type={type} placeholder={placeholder} className="normal-input"/>
+        <input type={type} placeholder={placeholder} className={`normal-input ${require && !passedCheck ? 'red' : ''}`}/>
       </div>
     }
     

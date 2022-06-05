@@ -1,16 +1,16 @@
 import './variable.css';
 import './App.css';
 import {FormContainer} from './componets/FormContainer';
-import {useState, useReducer} from 'react';
+import {useState, useReducer, useEffect} from 'react';
 
 const reducer = (state, action) => {
   switch(action.type) {
     case "submitForm": {
       state.forEach(item => {
-        item["elements"].forEach(ele => {
-          ele["list"].forEach(listItem => {
+        return item["elements"].forEach(ele => {
+          return ele["list"].forEach(listItem => {
             if(listItem.value === '') {
-              listItem.passedCheck = false
+              return listItem.passedCheck = false
             }            
           })
         })
@@ -19,6 +19,7 @@ const reducer = (state, action) => {
     default: return state;
   }
 }
+
 
 function App() {
   const [items, dispatch] = useReducer(reducer,
@@ -217,7 +218,7 @@ function App() {
             name: "Driver", 
             type: 'dropdown',
             id: 11,
-            required: true,
+            require: true,
             passedCheck: true,
             value:'',
             elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
@@ -227,7 +228,7 @@ function App() {
             type: 'number',
             placeholder: "Number",
             id: 12,
-            required: true,
+            require: true,
             passedCheck: true,
             value:'',
           },
@@ -238,7 +239,7 @@ function App() {
             type: 'dropdown',
             width: '6',
             prop: 'driver',
-            required: true,
+            require: true,
             passedCheck: true,
             value:'',
             elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
@@ -249,7 +250,7 @@ function App() {
             type: 'dropdown',
             width: '6',
             prop: 'trailer',
-            required: true,
+            require: true,
             passedCheck: true,
             value:'',
             elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
@@ -259,6 +260,7 @@ function App() {
     ]}
   ]);
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({type: 'submitForm'})
@@ -267,13 +269,14 @@ function App() {
   return (
     <div className="App" >
       <h1>Form Title</h1>      
-        {items && items.map(form => {
+        {items && items.map((form, idx) => {
           return <FormContainer            
             key={form.id}
             sectionTitle={form.sectionTitle}
             draggable={form.draggable}
             column={form.column}
             elements={form.elements}
+            formIdx={idx}
           />
         })}
         <section className='submit-container'>
