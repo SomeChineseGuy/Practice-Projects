@@ -9,7 +9,7 @@ export const FormItem = (props) => {
   const [selected, setSelected] = useState(null);
 
   const handleToggle = (e) => {
-    pickUser(e.target.innerText)
+    handleEntry(e.target.innerText)
     e.target.focus();
   }
 
@@ -21,7 +21,7 @@ export const FormItem = (props) => {
     }, 100);    
   }
 
-  const pickUser = (selection) => {
+  const handleEntry = (selection) => {
     setSelected(selection)
     setItems((prevState) => {
       prevState[formIdx].elements[0].list[itemIdx].value = selection;
@@ -29,10 +29,6 @@ export const FormItem = (props) => {
     })
   }
 
-  const dropdownUpdate = (value) => {
-    setSelected(value)
-
-  }
 
   return(
     <div className="item-container">
@@ -62,7 +58,7 @@ export const FormItem = (props) => {
 
     {type !== "dropdown" &&
       <div> 
-        <input type={type} placeholder={placeholder} onChange={(e) => dropdownUpdate(e)} className={`normal-input ${require && !passedCheck ? 'red' : ''}`}/>
+        <input type={type} placeholder={placeholder} onChange={(e) => handleEntry(e)} className={`normal-input ${require && !passedCheck ? 'red' : ''}`}/>
       </div>
     }
     

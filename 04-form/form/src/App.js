@@ -300,6 +300,8 @@ function App() {
       }
     ]}
   ]);
+  
+  console.log(items)
 
   const handleSubmit = (e) => {
     e.preventDefault();   
