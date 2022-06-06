@@ -1,28 +1,11 @@
 import './variable.css';
 import './App.css';
 import {FormContainer} from './componets/FormContainer';
-import {useReducer} from 'react';
-
-const reducer = (state, action) => {
-  switch(action.type) {
-    case "submitForm": {
-      state.forEach(item => {
-        return item["elements"].forEach(ele => {
-          return ele["list"].forEach(listItem => {
-            if(listItem.value === '') {
-              return listItem.passedCheck = false
-            }            
-          })
-        })
-      })
-    }
-    default: return state;
-  }
-}
+import {useReducer, useState} from 'react';
 
 
 function App() {
-  const [items, dispatch] = useReducer(reducer,
+  const [items, setItems] = useState(
     [
     {
       id: 5,
@@ -320,7 +303,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({type: 'submitForm'})
+   
   }
 
   return (
@@ -334,6 +317,8 @@ function App() {
             column={form.column}
             elements={form.elements}
             formIdx={idx}
+            {...items}
+            setItems={setItems}
           />
         })}
         <section className='submit-container'>

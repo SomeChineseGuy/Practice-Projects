@@ -10,15 +10,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
 
 export const FormContainer = (props) => {
-  const {sectionTitle, draggable, column, elements} = props;
+  
+  const {sectionTitle, draggable, column, elements, setItems, formIdx} = props;
   const [formElements, setFormElements] = useState(elements);
-
+  console.log(props["0"])
   const handleOnDragEnd = (results) => {
     if(!results.destination) return;
-    const list = Array.from(formElements);
+    const list = Array.from(elements);
     const [reorderedItem] = list.splice(results.source.index, 1);
     list.splice(results.destination.index, 0, reorderedItem);
-    setFormElements(list);
+    setItems(prevState => {
+      prevState[formIdx].elements = list  
+      return [...prevState]
+
+    });
+    
   }
 
   
@@ -38,7 +44,7 @@ export const FormContainer = (props) => {
                background: snapshot.isDraggingOver ? "": "white",
               }}  
             > 
-              {formElements.map((inner, index) => {
+              {elements.map((inner, index) => {
                 return (
                   <Draggable key={inner.id} draggableId={inner.id} index={index}>
                     {(provided, snapshot) =>(
@@ -79,7 +85,7 @@ export const FormContainer = (props) => {
     {!draggable && 
       <div className="form-container"  style={{gridTemplateColumns: `repeat(${column}, 1fr)`}} >
      
-      {!draggable && formElements[0].list.map((item) => {
+      {!draggable && elements[0].list.map((item) => {
         return <FormItem
           value={item.value}
           require={item.require}
