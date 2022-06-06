@@ -23,6 +23,15 @@ export const FormItem = (props) => {
 
   const pickUser = (selection) => {
     setSelected(selection)
+    setItems((prevState) => {
+      prevState[formIdx].elements[0].list[itemIdx].value = selection;
+      return [...prevState]
+    })
+  }
+
+  const dropdownUpdate = (value) => {
+    setSelected(value)
+
   }
 
   return(
@@ -53,7 +62,7 @@ export const FormItem = (props) => {
 
     {type !== "dropdown" &&
       <div> 
-        <input type={type} placeholder={placeholder} onChange={(e) => setSelected(e.target.value)} className={`normal-input ${require && !passedCheck ? 'red' : ''}`}/>
+        <input type={type} placeholder={placeholder} onChange={(e) => dropdownUpdate(e)} className={`normal-input ${require && !passedCheck ? 'red' : ''}`}/>
       </div>
     }
     

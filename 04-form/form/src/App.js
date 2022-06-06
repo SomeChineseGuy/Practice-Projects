@@ -302,8 +302,7 @@ function App() {
   ]);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-   
+    e.preventDefault();   
   }
 
   return (
