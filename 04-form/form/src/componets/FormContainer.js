@@ -1,19 +1,13 @@
-
 import {FormItem} from './FormItem';
-import { useState, useEffect, useRef, forwardRef } from 'react';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import '../variable.css';
 import './FormContainer.css';
-
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
 
 export const FormContainer = (props) => {
-  
   const {sectionTitle, draggable, column, elements, setItems, formIdx} = props;
-  const [formElements, setFormElements] = useState(elements);
-  console.log(props["0"])
+
   const handleOnDragEnd = (results) => {
     if(!results.destination) return;
     const list = Array.from(elements);
@@ -22,11 +16,8 @@ export const FormContainer = (props) => {
     setItems(prevState => {
       prevState[formIdx].elements = list  
       return [...prevState]
-
-    });
-    
+    });    
   }
-
   
   return (
     <section className="section-container">
@@ -57,15 +48,18 @@ export const FormContainer = (props) => {
                           ? "#e2e2e2"
                           : "#FBFBFB",}} className={`form-container draggable`} >
                           <FontAwesomeIcon icon={faGripVertical} className="drag-dots" />
-                          {inner.list.map((item) => {                                                  
+                          {inner.list.map((item, idx) => {                                                  
                             return <FormItem
-                              key={item.id}                               
-                              name={item.name} 
-                              type={item.type} 
+                              key={item.id}                            
+                              name={item.name}
+                              type={item.type}
                               placeholder={item.placeholder}
                               value={item.value}
                               require={item.require}
-                              passedCheck={item.passedCheck}                              
+                              passedCheck={item.passedCheck}
+                              formIdx={formIdx}
+                              itemIdx={idx}
+                              setItems={setItems}
                             />
                           })}
                         </div>
@@ -85,16 +79,19 @@ export const FormContainer = (props) => {
     {!draggable && 
       <div className="form-container"  style={{gridTemplateColumns: `repeat(${column}, 1fr)`}} >
      
-      {!draggable && elements[0].list.map((item) => {
+      {!draggable && elements[0].list.map((item, idx) => {
         return <FormItem
           value={item.value}
           require={item.require}
           passedCheck={item.passedCheck}
           key={item.id}
-          elements={item.elements} 
-          name={item.name} 
-          type={item.type} 
-          placeholder={item.placeholder} 
+          elements={item.elements}
+          name={item.name}
+          type={item.type}
+          placeholder={item.placeholder}
+          formIdx={formIdx}
+          itemIdx={idx}
+          setItems={setItems}
         />
       })}
 

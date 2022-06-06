@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 export const FormItem = (props) => {
-  const {name, type, elements, placeholder, require, passedCheck} = props;
+  const {name, type, elements, placeholder, require, passedCheck, setItems, formIdx, itemIdx} = props;
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(null);
 

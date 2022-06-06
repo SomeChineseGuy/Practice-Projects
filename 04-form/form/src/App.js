@@ -1,7 +1,7 @@
 import './variable.css';
 import './App.css';
 import {FormContainer} from './componets/FormContainer';
-import {useReducer, useState} from 'react';
+import {useState} from 'react';
 
 
 function App() {
