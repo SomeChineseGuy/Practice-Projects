@@ -1,6 +1,6 @@
 const data1 = [{
   id: 1,
-  sectionTitle: 'Shipment 1',
+  sectionTitle: 'Shipments August',
   type: 'list',
   column: 4,
   prop: 'shipments',
@@ -14,7 +14,7 @@ const data1 = [{
       list: [
         {
           id: 3,          
-          name: 'Customer1',
+          name: 'Customer 1',
           placeholder: 'String',
           value: '',
           require: true,
@@ -67,7 +67,7 @@ const data1 = [{
       list: [
         {
           id: 8,          
-          name: 'Customer0',
+          name: 'Customer 2',
           placeholder: 'String',
           value: '',
           require: true,
@@ -120,7 +120,7 @@ const data1 = [{
       list: [
         {
           id: 13,          
-          name: 'Customer2',
+          name: 'Customer 3',
           placeholder: 'String',
           value: '',
           require: true,
@@ -172,7 +172,7 @@ const data1 = [{
       list: [
         {
           id: 18,          
-          name: 'Customer3',
+          name: 'Customer 4',
           placeholder: 'String',
           value: '',
           require: true,
@@ -219,7 +219,7 @@ const data1 = [{
   ]
 },
 {
-sectionTitle: "Section Title",
+sectionTitle: "Walmart Shipments",
 row: 2,
 column: 2,
 id: 22,
@@ -258,7 +258,7 @@ elements: [
         require: true,
         passedCheck: true,
         value:'',
-        elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
+        elements: [{ id: 1, value: 'Red 7' }, { id: 2, value: 'Green 2' }]
       },
       {
         id: 27,
@@ -269,7 +269,7 @@ elements: [
         require: true,
         passedCheck: true,
         value:'',
-        elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
+        elements: [{ id: 1, value: 'Large' }, { id: 2, value: 'Small' }]
       },
     ]
   }
@@ -278,12 +278,10 @@ elements: [
 
 
 
-
-
 ////////// ------------------------->>>>>>>>>>>>>>>
 const data2 = [{
   id: 1,
-  sectionTitle: 'Shipment 1',
+  sectionTitle: 'Shipment May',
   type: 'list',
   column: 4,
   prop: 'shipments',
@@ -339,12 +337,12 @@ const data2 = [{
       list: [
         {
           id: 11,          
-          name: 'Cases',
-          placeholder: 'Number',
+          name: 'Customer 1',
+          placeholder: 'String',
           value: '',
           require: true,
           passedCheck: true,
-          type: 'number',
+          type: 'string',
           width: '3',
           prop: 'cases',
         }
@@ -358,7 +356,7 @@ const data2 = [{
       list: [
         {
           id: 13,          
-          name: 'Customer2',
+          name: 'Customer 2',
           placeholder: 'String',
           value: '',
           require: true,
@@ -410,7 +408,7 @@ const data2 = [{
       list: [
         {
           id: 18,          
-          name: 'Customer3',
+          name: 'Customer 3',
           placeholder: 'String',
           value: '',
           require: true,
@@ -435,7 +433,7 @@ const data2 = [{
   ]
 },
 {
-sectionTitle: "Section Title",
+sectionTitle: "New Shippment",
 row: 2,
 column: 2,
 id: 22,
@@ -474,7 +472,7 @@ elements: [
         require: true,
         passedCheck: true,
         value:'',
-        elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
+        elements: [{ id: 1, value: 'Purple 1' }, { id: 2, value: 'Yellow 2' }]
       },
       {
         id: 27,
@@ -485,7 +483,7 @@ elements: [
         require: true,
         passedCheck: true,
         value:'',
-        elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
+        elements: [{ id: 1, value: 'Small' }, { id: 2, value: 'Large' }]
       },
     ]
   }
@@ -493,7 +491,7 @@ elements: [
 },
 {
   id: 1,
-  sectionTitle: 'Shipment 2',
+  sectionTitle: 'Shipment June',
   type: 'list',
   column: 4,
   prop: 'shipments',
