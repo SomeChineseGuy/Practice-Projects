@@ -1,7 +1,7 @@
 import './variable.css';
 import './App.css';
 import {FormContainer} from './componets/FormContainer';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 
 function App() {
@@ -300,12 +300,25 @@ function App() {
       }
     ]}
   ]);
-  
-  console.log(items)
 
   const handleSubmit = (e) => {
-    e.preventDefault();   
+    e.preventDefault();
+    items.forEach((item, itemIdx) => {
+      item.elements.forEach((element, eleIdx) => {
+        element.list.forEach((listItem, listIdx) => {
+          if(listItem.require && !listItem.value) {
+            return setItems((prevState) => {
+              let newState = prevState;
+              newState[itemIdx].elements[eleIdx].list[listIdx].passedCheck = false;              
+              return newState;
+            })
+          }
+        })
+      })
+    })
   }
+
+
 
   return (
     <div className="App" >

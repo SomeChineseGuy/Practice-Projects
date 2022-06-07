@@ -35,9 +35,9 @@ export const FormContainer = (props) => {
                background: snapshot.isDraggingOver ? "": "white",
               }}  
             > 
-              {elements.map((inner, index) => {
+              {elements.map((inner, innerIdx) => {
                 return (
-                  <Draggable key={inner.id} draggableId={inner.id} index={index}>
+                  <Draggable key={inner.id} draggableId={inner.id} index={innerIdx}>
                     {(provided, snapshot) =>(
                       <div                                               
                         {...provided.draggableProps}
@@ -58,6 +58,7 @@ export const FormContainer = (props) => {
                               require={item.require}
                               passedCheck={item.passedCheck}
                               formIdx={formIdx}
+                              innerIdx={innerIdx}
                               itemIdx={idx}
                               setItems={setItems}
                             />

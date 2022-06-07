@@ -10,6 +10,10 @@
   overflow: hidden;
 }
 
+.dropdown-container.red, .normal-input.red {
+  border: 2px solid red;
+}
+
 .normal-input {
   padding: 15px;
   width: 100%;
@@ -43,6 +47,8 @@ input.selected {
   box-sizing: content-box;
   background-color: transparent;
 }
+
+
 
 .icon {
   color: rgba(0, 79, 147, 0.5);
@@ -79,6 +85,3 @@ input.selected {
   height: 100%;
 }
 
-input.selected.red {
-  border: 1px solid red;
-}
