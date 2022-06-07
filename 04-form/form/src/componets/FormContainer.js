@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGripVertical } from '@fortawesome/free-solid-svg-icons'
 
 export const FormContainer = (props) => {
-  const {sectionTitle, draggable, column, elements, setItems, formIdx} = props;
+  const {sectionTitle, draggable, elements, column, setItems, formIdx} = props;
 
   const handleOnDragEnd = (results) => {
     if(!results.destination) return;
@@ -18,7 +18,7 @@ export const FormContainer = (props) => {
       return [...prevState]
     });    
   }
-  
+  console.log(elements)
   return (
     <section className="section-container">
     <h2>{sectionTitle}</h2>
@@ -44,7 +44,7 @@ export const FormContainer = (props) => {
                         ref={provided.innerRef}
                         {...provided.dragHandleProps}                        
                       >
-                        <div style={{gridTemplateColumns: `repeat(${column}, 1fr)`,   backgroundColor: snapshot.isDragging
+                        <div style={{gridTemplateColumns: `repeat(${elements[innerIdx].list.length}, 1fr)`,   backgroundColor: snapshot.isDragging
                           ? "#e2e2e2"
                           : "#FBFBFB",}} className={`form-container draggable`} >
                           <FontAwesomeIcon icon={faGripVertical} className="drag-dots" />
