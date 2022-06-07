@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react';
 
 
 function App() {
+  const [readySend, setReadySend] = useState(true);
   const [items, setItems] = useState(
     [
     {
@@ -303,18 +304,19 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    items.forEach((item, itemIdx) => {
-      item.elements.forEach((element, eleIdx) => {
-        element.list.forEach((listItem, listIdx) => {
-          if(listItem.require && !listItem.value) {
-            return setItems((prevState) => {
-              let newState = prevState;
-              newState[itemIdx].elements[eleIdx].list[listIdx].passedCheck = false;              
-              return newState;
-            })
-          }
+    setItems(prevState => {
+      let newState = prevState
+      newState.forEach((item, itemIdx) => {
+        item.elements.forEach((element, eleIdx) => {
+          element.list.forEach((listItem, listIdx) => {
+            if(listItem.require && !listItem.value) {           
+              setReadySend(false)                 
+              newState[itemIdx].elements[eleIdx].list[listIdx].passedCheck = false;                              
+            }
+          })
         })
       })
+      return newState
     })
   }
 

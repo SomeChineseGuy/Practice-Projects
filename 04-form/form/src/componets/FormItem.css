@@ -11,6 +11,7 @@
 }
 
 .dropdown-container.red, .normal-input.red {
+  transition: all 0 ease;
   border: 2px solid red;
 }
 

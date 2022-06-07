@@ -92,6 +92,7 @@ export const FormContainer = (props) => {
           placeholder={item.placeholder}
           formIdx={formIdx}
           itemIdx={idx}
+          innerIdx={0}
           setItems={setItems}
         />
       })}

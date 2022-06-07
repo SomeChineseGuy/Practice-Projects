@@ -13,8 +13,6 @@ export const FormItem = (props) => {
     e.target.focus();
   }
 
-  console.log(innerIdx)
-
   const handleBlur = (e) => {
     if (e.nativeEvent.explicitOriginalTarget && e.nativeEvent.explicitOriginalTarget === e.nativeEvent.originalTarget) return;
     
@@ -26,16 +24,25 @@ export const FormItem = (props) => {
   const handleDropdown = (selection) => {
     setSelected(selection)
     setItems((prevState) => {
-      prevState[formIdx].elements[0].list[itemIdx].value = selection;
-      return [...prevState]
+      let newState = prevState
+      newState[formIdx].elements[0].list[itemIdx].value = selection;
+      if(newState[formIdx].elements[0].list[itemIdx].require) {
+        newState[formIdx].elements[0].list[itemIdx].passedCheck = true;
+      }
+      
+      return [...newState]
     })
   }
 
-  const handleEntry = (event) => {
+  const handleEntry = (event) => {    
     setSelected(event.target.value)
     setItems((prevState) => {
-      prevState[formIdx].elements[innerIdx].list[itemIdx].value = event.target.value;
-      return [...prevState]
+      let newState = prevState
+      newState[formIdx].elements[innerIdx].list[itemIdx].value = selected
+      if(newState[formIdx].elements[innerIdx].list[itemIdx].require) {
+        newState[formIdx].elements[innerIdx].list[itemIdx].passedCheck = true
+      }
+      return [...newState]
     })
   }
 
