@@ -1,11 +1,13 @@
 import './variable.css';
 import './App.css';
 import {FormContainer} from './componets/FormContainer';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
+import axios from 'axios';
 
 
 function App() {
-  const [readySend, setReadySend] = useState(true);
+  const [readySend, setReadySend] = useState(false);
+  const [itemCheck, setItemCheck] = useState(true);
   const [items, setItems] = useState(
     [
     {
@@ -304,20 +306,32 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setItems(prevState => {
-      let newState = prevState
-      newState.forEach((item, itemIdx) => {
-        item.elements.forEach((element, eleIdx) => {
-          element.list.forEach((listItem, listIdx) => {
-            if(listItem.require && !listItem.value) {           
-              setReadySend(false)                 
-              newState[itemIdx].elements[eleIdx].list[listIdx].passedCheck = false;                              
-            }
+    if(!readySend) {
+      setItems(prevState => {
+        let newState = prevState;
+        newState.forEach((item, itemIdx) => {
+          item.elements.forEach((element, eleIdx) => {
+            element.list.forEach((listItem, listIdx) => {
+              if(listItem.require && !listItem.value) {           
+                setItemCheck(false)                 
+                newState[itemIdx].elements[eleIdx].list[listIdx].passedCheck = false;                              
+              }
+            })
           })
         })
+        if(itemCheck) setReadySend(true);
+        setItemCheck(true);
+        return newState
       })
-      return newState
-    })
+    } else {
+      axios.post('http://localhost:3000/api/data', {
+        data: items
+      }).then((res) => {
+        console.log(res)
+      }).catch((res) => {
+        console.log(res)
+      })
+    }
   }
 
 
