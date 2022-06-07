@@ -8,10 +8,8 @@ import axios from 'axios';
 function App() {
   const [readySend, setReadySend] = useState(false);
   const [itemCheck, setItemCheck] = useState(true);
-  const [items, setItems] = useState(
-    [
-    {
-      id: 5,
+  const [items, setItems] = useState([{
+      id: 1,
       sectionTitle: 'Shipment 1',
       type: 'list',
       column: 4,
@@ -19,13 +17,13 @@ function App() {
       draggable: true,
       elements: [
         {
-          id: "20",
+          id: "2",
           type: 'element-group',
           width: '12',
           name: "driver-picker",
           list: [
             {
-              id: 7,
+              id: 3,
               entity_id: '',
               name: 'Customer1',
               placeholder: 'String',
@@ -37,7 +35,7 @@ function App() {
               prop: 'customer',
             },
             {
-              id: 8,
+              id: 4,
               entity_id: '',
               name: 'Purchase Order No.',
               placeholder: 'String',
@@ -49,7 +47,7 @@ function App() {
               prop: 'purchase_order_no',
             },
             {
-              id: 9,
+              id: 5,
               entity_id: '',
               name: 'Shipper',
               placeholder: 'String',
@@ -61,6 +59,119 @@ function App() {
               prop: 'shipper',
             },
             
+            {
+              id: 6,
+              entity_id: '',
+              name: 'Cases',
+              placeholder: 'Number',
+              value: '',
+              require: true,
+              passedCheck: true,
+              type: 'number',
+              width: '3',
+              prop: 'cases',
+            }
+          ]
+        },
+        {
+          id: "7",
+          type: 'element-group',
+          width: '12',
+          name: "driver-picker",
+          list: [
+            {
+              id: 8,
+              entity_id: '',
+              name: 'Customer0',
+              placeholder: 'String',
+              value: '',
+              require: true,
+              passedCheck: true,
+              type: 'string',
+              width: '3',
+              prop: 'customer',
+            },
+            {
+              id: 9,
+              entity_id: '',
+              name: 'Purchase Order No.',
+              placeholder: 'String',
+              value: '',
+              require: true,
+              passedCheck: true,
+              type: 'string',
+              width: '3',
+              prop: 'purchase_order_no',
+            },
+            {
+              id: 10,
+              entity_id: '',
+              name: 'Shipper',
+              placeholder: 'String',
+              value: '',
+              require: true,
+              passedCheck: true,
+              type: 'string',
+              width: '3',
+              prop: 'shipper',
+            },
+            
+            {
+              id: 11,
+              entity_id: '',
+              name: 'Cases',
+              placeholder: 'Number',
+              value: '',
+              require: true,
+              passedCheck: true,
+              type: 'number',
+              width: '3',
+              prop: 'cases',
+            }
+          ]
+        },
+        {
+          id: "12",
+          type: 'element-group',
+          width: '12',
+          name: "driver-picker",
+          list: [
+            {
+              id: 13,
+              entity_id: '',
+              name: 'Customer2',
+              placeholder: 'String',
+              value: '',
+              require: true,
+              passedCheck: true,
+              type: 'string',
+              width: '3',
+              prop: 'customer',
+            },
+            {
+              id: 14,
+              entity_id: '',
+              name: 'Purchase Order No.',
+              placeholder: 'String',
+              value: '',
+              require: true,
+              passedCheck: true,
+              type: 'string',
+              width: '3',
+              prop: 'purchase_order_no',
+            },
+            {
+              id: 15,
+              entity_id: '',
+              name: 'Shipper',
+              placeholder: 'String',
+              value: '',
+              require: true,
+              passedCheck: true,
+              type: 'string',
+              width: '3',
+              prop: 'shipper',
+            },
             {
               id: 16,
               entity_id: '',
@@ -76,126 +187,13 @@ function App() {
           ]
         },
         {
-          id: "99",
+          id: "17",
           type: 'element-group',
           width: '12',
           name: "driver-picker",
           list: [
             {
-              id: 7,
-              entity_id: '',
-              name: 'Customer0',
-              placeholder: 'String',
-              value: '',
-              require: true,
-              passedCheck: true,
-              type: 'string',
-              width: '3',
-              prop: 'customer',
-            },
-            {
-              id: 8,
-              entity_id: '',
-              name: 'Purchase Order No.',
-              placeholder: 'String',
-              value: '',
-              require: true,
-              passedCheck: true,
-              type: 'string',
-              width: '3',
-              prop: 'purchase_order_no',
-            },
-            {
-              id: 9,
-              entity_id: '',
-              name: 'Shipper',
-              placeholder: 'String',
-              value: '',
-              require: true,
-              passedCheck: true,
-              type: 'string',
-              width: '3',
-              prop: 'shipper',
-            },
-            
-            {
-              id: 10,
-              entity_id: '',
-              name: 'Cases',
-              placeholder: 'Number',
-              value: '',
-              require: true,
-              passedCheck: true,
-              type: 'number',
-              width: '3',
-              prop: 'cases',
-            }
-          ]
-        },
-        {
-          id: "21",
-          type: 'element-group',
-          width: '12',
-          name: "driver-picker",
-          list: [
-            {
-              id: 27,
-              entity_id: '',
-              name: 'Customer2',
-              placeholder: 'String',
-              value: '',
-              require: true,
-              passedCheck: true,
-              type: 'string',
-              width: '3',
-              prop: 'customer',
-            },
-            {
-              id: 28,
-              entity_id: '',
-              name: 'Purchase Order No.',
-              placeholder: 'String',
-              value: '',
-              require: true,
-              passedCheck: true,
-              type: 'string',
-              width: '3',
-              prop: 'purchase_order_no',
-            },
-            {
-              id: 29,
-              entity_id: '',
-              name: 'Shipper',
-              placeholder: 'String',
-              value: '',
-              require: true,
-              passedCheck: true,
-              type: 'string',
-              width: '3',
-              prop: 'shipper',
-            },
-            {
-              id: 210,
-              entity_id: '',
-              name: 'Cases',
-              placeholder: 'Number',
-              value: '',
-              require: true,
-              passedCheck: true,
-              type: 'number',
-              width: '3',
-              prop: 'cases',
-            }
-          ]
-        },
-        {
-          id: "22",
-          type: 'element-group',
-          width: '12',
-          name: "driver-picker",
-          list: [
-            {
-              id: 37,
+              id: 18,
               entity_id: '',
               name: 'Customer3',
               placeholder: 'String',
@@ -207,7 +205,7 @@ function App() {
               prop: 'customer',
             },
             {
-              id: 38,
+              id: 19,
               entity_id: '',
               name: 'Purchase Order No.',
               placeholder: 'String',
@@ -219,7 +217,7 @@ function App() {
               prop: 'purchase_order_no',
             },
             {
-              id: 39,
+              id: 20,
               entity_id: '',
               name: 'Shipper',
               placeholder: 'String',
@@ -231,7 +229,7 @@ function App() {
               prop: 'shipper',
             },
             {
-              id: 310,
+              id: 21,
               entity_id: '',
               name: 'Cases',
               placeholder: 'Number',
@@ -250,18 +248,18 @@ function App() {
     sectionTitle: "Section Title",
     row: 2,
     column: 2,
-    id: 999,
+    id: 22,
     formType: 'normal',
     elements: [
       {
-        id: 16,
+        id: 23,
         type: 'element-group',
         width: '12',
         list: [
           {
             name: "Driver", 
             type: 'dropdown',
-            id: 11,
+            id: 24,
             require: true,
             passedCheck: true,
             value:'',
@@ -271,14 +269,14 @@ function App() {
             name: "Temp", 
             type: 'number',
             placeholder: "Number",
-            id: 12,
+            id: 25,
             require: true,
             passedCheck: true,
             value:'',
           },
 
           {
-            id: 13,
+            id: 26,
             name: 'Truck',
             type: 'dropdown',
             width: '6',
@@ -289,7 +287,7 @@ function App() {
             elements: [{ id: 1, value: 'Steve' }, { id: 2, value: 'Mike' }]
           },
           {
-            id: 222,
+            id: 27,
             name: 'Trailer',
             type: 'dropdown',
             width: '6',
@@ -301,8 +299,8 @@ function App() {
           },
         ]
       }
-    ]}
-  ]);
+    ]
+  }]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
