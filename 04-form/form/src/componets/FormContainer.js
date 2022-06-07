@@ -18,7 +18,7 @@ export const FormContainer = (props) => {
       return [...prevState]
     });    
   }
-  console.log(elements)
+  
   return (
     <section className="section-container">
     <h2>{sectionTitle}</h2>
