@@ -294,8 +294,8 @@ function App() {
         newState.forEach((item, itemIdx) => {
           item.elements.forEach((element, eleIdx) => {
             element.list.forEach((listItem, listIdx) => {
-              if(listItem.require && !listItem.value) {           
-                setItemCheck(false)                 
+              if(listItem.require && !listItem.value) {
+                setItemCheck(false)
                 newState[itemIdx].elements[eleIdx].list[listIdx].passedCheck = false;                              
               }
             })
